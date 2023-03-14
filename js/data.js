@@ -14,6 +14,6 @@ function createImgDescription (number) {
     };
   }
   return photos;
-};
+}
 
 export {createImgDescription};
