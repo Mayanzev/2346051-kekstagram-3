@@ -1,5 +1,5 @@
-import { createImgDescription } from './data.js';
-import { checkStringLength } from './util.js';
+import {createImgDescription} from './data.js';
+import {checkStringLength} from './util.js';
 
 // eslint-disable-next-line
 checkStringLength('test', 3);
