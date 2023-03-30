@@ -7,4 +7,4 @@ checkStringLength('test', 3);
 
 
 // eslint-disable-next-line
-createImgDescription(25);
+createImgDescriptions(25);
