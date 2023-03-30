@@ -13,3 +13,5 @@ for (const element of basicPhotos) {
   photoFragment.appendChild(photo);
 }
 photosList.appendChild(photoFragment);
+
+//Задание 7 часть 2
