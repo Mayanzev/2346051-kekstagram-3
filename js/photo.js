@@ -3,7 +3,7 @@ import {createImgDescriptions} from './data.js';
 const photoFragment = document.createDocumentFragment();
 const photosList = document.querySelector('.pictures');
 const photosSample = document.querySelector('#picture');
-const basicPhotos = createImgDescription(25);
+const basicPhotos = createImgDescriptions(25);
 
 for (const element of basicPhotos) {
   const photo = photosSample.cloneNode(true).content;
