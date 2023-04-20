@@ -3,6 +3,8 @@ import {checkStringLength} from './util.js';
 import './photo.js';
 import './form.js';
 import './validation.js';
+import './scale.js';
+import './effects.js';
 
 // eslint-disable-next-line
 checkStringLength('test', 3);
