@@ -2,6 +2,8 @@ const slider = document.querySelector('.effect-level__slider');
 const effectValue = document.querySelector('.effect-level__value');
 const preview = document.querySelector('.img-upload__preview');
 const effectButtons = document.querySelectorAll('.effects__radio');
+const sliderBackground = document.querySelector('.img-upload__effect-level');
+const noneButton = document.querySelector('#effect-none');
 
 noUiSlider.create(slider, {
   range: {
@@ -29,6 +31,8 @@ function addEffect(button) {
     preview.classList.remove(`effects__preview--${filter}`);
     preview.classList.add(`effects__preview--${button.value}`);
     filter=button.value;
+    slider.classList.remove('hidden');
+    sliderBackground.classList.remove('hidden');
     switch (filter) {
       case 'chrome':
         effectValue.value=1;
@@ -57,6 +61,8 @@ function addEffect(button) {
         break;
       default:
         preview.style.filter='';
+        slider.classList.add('hidden');
+        sliderBackground.classList.add('hidden');
         break;
     }
   });
@@ -86,3 +92,15 @@ slider.noUiSlider.on('slide', ()=> {
       break;
   }
 });
+
+const resetEffect = () => {
+  preview.classList.remove(`effects__preview--${filter}`);
+  preview.style.filter = '';
+  filter = 'none';
+  preview.style.transform=`scale(${1})`;
+  slider.classList.add('hidden');
+  sliderBackground.classList.add('hidden');
+  noneButton.checked = true;
+};
+
+export {resetEffect};

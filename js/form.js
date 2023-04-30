@@ -1,15 +1,17 @@
+import {resetEffect} from './effects.js';
+
 document.querySelector('#upload-file').addEventListener('change', () => {
   openWindow();
 });
 
 document.querySelector('#upload-cancel').addEventListener('click', () => {
-  closeWindow();
+  closeWindow(true);
 });
 
 const closeOnButton = (evt) => {
   if (evt.key === 'Escape') {
     evt.preventDefault();
-    closeWindow();
+    closeWindow(true);
   }
 };
 
@@ -20,14 +22,20 @@ function openWindow() {
 }
 
 function cleanForm() {
-  document.querySelector('#upload-file').value = '';
   document.querySelector('.text__hashtags').value = '';
   document.querySelector('.text__description').value = '';
+  resetEffect();
+  document.querySelector('.scale__control--value').value = '100%';
 }
 
-function closeWindow() {
+function closeWindow(necessaryClean) {
   document.querySelector('.img-upload__overlay').classList.add('hidden');
   document.body.classList.remove('modal-open');
   document.removeEventListener('keydown', closeOnButton);
-  cleanForm();
+  document.querySelector('#upload-file').value = '';
+  if (necessaryClean) {
+    cleanForm();
+  }
 }
+
+export {closeWindow};
