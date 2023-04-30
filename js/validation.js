@@ -1,3 +1,5 @@
+import { sendPhotosToServer } from './api.js';
+
 const form = document.querySelector('.img-upload__form');
 const pristine = new Pristine(form, {
   classTo: 'img-upload__text',
@@ -15,7 +17,8 @@ function validateComment(element) {
 }
 
 form.addEventListener('submit', (evt) => {
-  if (!pristine.validate()) {
-    evt.preventDefault();
+  evt.preventDefault();
+  if (pristine.validate()) {
+    sendPhotosToServer(evt);
   }
 });
